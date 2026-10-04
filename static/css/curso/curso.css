@@ -1,0 +1,170 @@
+/* ================ CSS Específico para a pagina Cursos ================ */
+main {
+    background-color: transparent; /* Remove o fundo unificado do base.css */
+    padding: 0; /* Delega o espaçamento para os blocos internos */
+    display: flex;
+    gap: 20px;
+}
+
+.main_content, .sidebar_cursos {
+    background-color: rgba(0, 0, 0, 0.404); /* Transfere o asfalto molhado para os blocos isolados */
+    padding:32px;
+    border-radius: 10px;
+    background-color: var(--cor-principal); 
+}
+
+.main_content {
+    flex: 7;
+}
+
+.sidebar {
+    flex: 3;
+    text-align: center;
+}
+
+.sidebar_cursos h3{
+    color: var(--cor-secundario);
+}
+
+.sidebar_cursos h4{
+    color: var(--cor-texto-apagado);
+}
+.sidebar_cursos p {
+    font-size: 12px; /* Letras miúdas */
+    margin-bottom: 20px;
+}
+
+/* =========================================
+   CARDS DE CURSO E BANNER INFORMATIVO
+========================================= */
+.curso_card {
+    background-color: var(--cor-background); 
+    padding:40px;
+    border-radius:8px;
+    box-shadow:none;
+    /* text-align:left; */
+    border-left: 3px solid var(--cor-secundario);
+    border-top:1px solid rgba(255,255,255,.04);
+    border-right:1px solid rgba(255,255,255,.04);
+    border-bottom:1px solid rgba(255,255,255,.04);
+}
+
+.curso_title {
+    color: var(--cor-texto-principal);
+    text-transform: uppercase;
+    font-size:34px;
+    line-height:1.2;
+    margin-bottom:12px;
+}
+
+.curso_meta {
+    color: var(--cor-asfalto);
+    font-size: 12px;
+    font-style: italic;
+    margin-bottom:30px;
+    opacity:.65;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px; 
+    
+}
+
+.curso_meta svg {
+    margin-bottom: 2px; /* Correção óptica de alinhamento */
+}
+
+.curso_meta .meta_divisor {
+    opacity: 0.4;
+    margin: 0 4px;
+}
+
+.curso_conteudo{
+    display:flex;
+    gap:40px;
+    align-items:flex-start;
+}
+
+.curso_conteudo img{
+
+    width:340px;
+
+    aspect-ratio:16/10;
+
+    object-fit:cover;
+
+    border-radius:8px;
+
+    flex-shrink:0;
+
+    border:1px solid rgba(255,255,255,.05);
+
+}
+
+.curso_texto{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+}
+
+.curso_excerpt {
+    max-width:none;
+    margin:0;
+    color: var(--cor-texto-secundario);
+    line-height: 1.9;
+    margin-bottom: 20px;
+    text-align: justify; 
+    padding:0;
+}
+
+.event_card {
+    
+    border-radius: 4px;
+    color: var(--cor-texto-secundario);
+    line-height: 1.9;
+    margin-bottom: 20px;
+    text-align: left; 
+    padding: 25px;
+}
+
+/* =========================================
+   BOTÃO: ACESSAR CURSO
+========================================= */
+.btn_acessar_curso {
+    display: flex; 
+    align-items: center; /* Garante que o bloco de texto fique exatamente no meio do botão */
+    justify-content: center;
+    width: 100%;
+    max-width:360px;
+    margin: 30px auto 0px; /* Centraliza horizontalmente no card */
+    padding: 12px 16px;
+    border-radius: 4px;
+    background-color: var(--cor-secundario);/* 50% Vermelho Escuro, 50% Vermelho Vivo */
+    background-size: 200% 100%; /* Dobra a largura do fundo invisivelmente */
+    color: var(--cor-texto-principal);
+    font-size: 13px;
+    font-weight: bold;
+    text-align: center;  /* Centraliza as palavras quando há quebra de linha */
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: background-position 0.3s ease-out;
+}
+
+.info_banner {
+    display:flex;
+    max-width:700px;
+    background-color: rgba(255, 255, 255, 0.03); /* Cinza translúcido muito sutil */
+    border: 1px dashed var(--cor-sombra);
+    border-radius: 6px;
+    font-size: 11px; /* Letras miúdas */
+    font-weight: 300; /* Letras finas */
+    text-align: left;
+    color: var(--cor-texto-apagado);
+    padding: 8px;
+    gap: 10px;
+    margin:0 auto 35px;
+    justify-content: center;
+    align-items: center; 
+}
+

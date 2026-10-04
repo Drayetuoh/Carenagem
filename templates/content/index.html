@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css_adicional %}
+    <!-- Css's que vão aparecer na index home -->
+    <link rel="stylesheet" href="{% static 'css/content/home.css' %}">
+    <link rel="stylesheet" href="{% static 'css/partials/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/partials/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/partials/sidebar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/components/carrossel.css' %}">
+{% endblock %}
+
+{% block header_left %} <!-- Adicionando o menu hamburger ao slot resarvado no cabeçalho -->
+    {% include 'components/__header_left_toogle_lock.html' with tipo_menu='content' %}
+{% endblock %}
+
+{% block header_right %} <!-- Adicionando os 3 capacetes ao slot resarvado no cabeçalho -->
+    {% include 'components/__header_capacetes.html' %}
+{% endblock %}
+
+{% block content %}
+
+    {% include 'partials/_sidebar_left.html' %}
+
+    <section class="main_content">
+    <article class="post_card">
+        <h3 class="post_title">A Filosofia das Duas Rodas: Muito Além da Mecânica</h3>
+        <p class="post_meta">Publicado em 13 de Julho de 2026 | Por Copywriter</p>
+        <p class="post_excerpt">
+            A verdadeira experiência do motociclismo não se mede apenas em cilindradas ou torque. Existe uma sociologia intrínseca nas estradas, uma conexão tácita entre aqueles que escolhem não estar engaiolados em quatro portas. Refletir sobre o vento no rosto é entender que a máquina é apenas uma extensão da nossa própria busca por liberdade e ordem na estrada.
+        </p>
+        <a href="#" class="btn_leia_mais">Ler artigo →</a>
+    </article>
+
+    <!-- Artigo 2 -->
+    <article class="post_card">
+        <h3 class="post_title">Review: A Ameaça Silenciosa dos Motores Elétricos</h3>
+        <p class="post_meta">Publicado em 10 de Julho de 2026 | Por Copywriter</p>
+        <p class="post_excerpt">
+            O ronco de um motor a combustão carrega história, mas o futuro elétrico já bate à nossa porta como uma revolução silenciosa. Testamos os novos modelos de alta performance que prometem eficiência extrema e aceleração brutal. Será que estamos prontos para sacrificar o som do corte de giro em nome do avanço tecnológico puro?
+        </p>
+        <a href="#" class="btn_leia_mais">Ler artigo →</a>
+    </article>
+    
+    </section>
+
+    {% include 'partials/_sidebar_right.html' %}
+
+{% endblock %} 
+
+    {% block footer_left %}
+        {% include 'components/__footer_navegacao.html' %} 
+    {% endblock %}
+    
+    {% block footer_center %}
+        {% include 'components/__footer_redes_sociais.html' %} 
+    {% endblock %}
+     
+    {% block footer_right %}
+        {% include 'components/__footer_info.html' %} 
+    {% endblock %}

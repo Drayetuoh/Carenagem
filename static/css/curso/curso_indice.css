@@ -1,0 +1,253 @@
+/* =========================================
+   MECÂNICA DO ACORDEÃO (Details/Summary)
+========================================= */
+
+/* Remove a seta nativa do navegador e prepara o chassi do título */
+.ementa_secao summary {
+    list-style: none; /* Oculta em navegadores modernos */
+    cursor: pointer;
+    position: relative; /* Necessário para ancorar o novo ícone */
+    outline: none; /* Remove a borda azul de clique padrão do Chrome */
+}
+
+/* Oculta a seta no Safari/WebKit */
+.ementa_secao summary::-webkit-details-marker {
+    display: none;
+}
+
+/* Ícone Customizado: Sinal de '+' ancorado à direita */
+.ementa_secao summary::after {
+    content: '+';
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%); /* Centraliza matematicamente no eixo Y */
+    color: var(--cor-secundario);
+    font-size: 24px;
+    font-weight: bold;
+    font-family: monospace; /* Fonte mono para garantir simetria no ícone */
+    transition: transform 0.2s ease; /* Animação tática sutil */
+}
+
+/* Mecânica de Estado: Transforma em '-' quando o acordeão estiver aberto */
+.ementa_secao[open] summary::after {
+    content: '-';
+    transform: translateY(-50%) rotate(180deg);
+}
+
+/* Feedback Visual: Destaca o bloco ativo escurecendo o fundo e acendendo o texto */
+.ementa_secao[open] {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+
+/* =========================================
+   CHASSI DO ÍNDICE DO CURSO (Ementa)
+========================================= */
+
+.main_content {
+    width: 80%;
+    margin: 0 auto; /* O '0' zera a margem cima/baixo, o 'auto' divide os 20% restantes igualmente nas laterais, centralizando o chassi */
+}
+
+.curso_titulo_interno {
+    color: var(--cor-texto-principal);
+    font-size: 28px;
+    text-transform: uppercase;
+    border-bottom: 2px solid rgba(255, 69, 0, 0.3); /* Linha divisória discreta */
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+}
+
+/* Blocos de cada Seção (Módulos Agrupados) */
+.ementa_secao {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-left: 6px solid var(--cor-secundario); /* Faixa lateral de identificação */
+    padding: 15px;
+    margin-bottom: 25px;
+    border-radius: 4px;
+}
+
+.ementa_secao h3 {
+    color: var(--cor-texto-principal);
+    font-size: 16px;
+    text-align: left;
+}
+.ementa_secao h4 {
+    color: var(--cor-texto-secundario);
+    font-size: 13px;
+    text-align: left;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+/* Tipografia e espaçamento da lista de módulos */
+.ementa_secao ol {
+    padding: 15px 0 0 15px;
+    color: var(--cor-texto-secundario);
+    font-family: monospace, sans-serif;
+    border-top: 1px solid var(--cor-asfalto);
+}
+
+.ementa_secao li {
+    margin-bottom: 20px;
+    text-align: left;
+    list-style: none;
+}
+
+/* Links dos Módulos */
+.ementa_secao a {
+    color: var(--cor-texto-secundario);
+    text-decoration: none;
+    font-family: Arial, sans-serif; /* Retorna à fonte primária para o texto */
+    font-size: 15px;
+    transition: color 0.2s ease, padding-left 0.2s ease;
+}
+
+/* Feedback visual de Alvo (Hover) */
+.ementa_secao a:hover {
+    color: var(--cor-secundario); /* Acende em laranja */
+    padding-left: 5px; /* Leve deslocamento para a direita indicando interação */
+}
+
+/* =========================================
+   BOTÃO DE AVANÇO (Próximo Curso)
+========================================= */
+.curso_acoes {
+    margin-top: 40px;
+    text-align: right; /* Posiciona o botão à direita como uma continuação lógica */
+}
+
+.btn_proximo_curso {
+    display: inline-block;
+    background-color: transparent;
+    color: var(--cor-secundario);
+    border: 1px solid var(--cor-secundario);
+    padding: 12px 24px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 12px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.btn_proximo_curso:hover {
+    background-color: var(--cor-secundario);
+    color: #000; /* Texto escuro garante alto contraste sobre o botão laranja vivo */
+}
+/* =========================================
+   SIDEBAR DA EMENTA (Layout e Tipografia)
+========================================= */
+
+.sidebar {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-left: 2px solid rgba(255, 69, 0, 0.3); /* Linha sutil tática à esquerda */
+    padding: 20px;
+    border-radius: 4px;
+}
+
+.sidebar_titulo_secao {
+    color: var(--cor-texto-principal);
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 1px solid var(--cor-secundario); /* Sublinhado em Laranja Fogo */
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+}
+
+/* O chassi do card usando Flexbox para espaçamento automático (Eficiência) */
+.curso_info_card {
+    display: flex;
+    flex-direction: column;
+    gap: 25px; 
+}
+
+/* Tratamento da Imagem */
+.curso_imagem_destaque img {
+    width: 100%;
+    border-radius: 4px;
+    border-bottom: 3px solid var(--cor-secundario);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* Área de injeção do JavaScript */
+.curso_dados_dinamicos h4 {
+    color: var(--cor-secundario); /* Título em Laranja para chamar a atenção */
+    font-size: 18px;
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+.curso_dados_dinamicos p {
+    color: var(--cor-texto-secundario);
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: left;
+}
+
+/* Lista estática inferior */
+.curso_lista_resumos h4 {
+    color: var(--cor-texto-principal);
+    font-size: 13px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    opacity: 0.8;
+}
+
+.curso_lista_resumos ul {
+    list-style-type: square;
+    padding-left: 15px;
+    color: var(--cor-secundario); /* Marcadores (quadrados) em Laranja */
+}
+
+.curso_lista_resumos li {
+    color: var(--cor-texto-secundario);
+    font-size: 13px;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.curso_lista_resumos li strong {
+    color: var(--cor-texto-principal); /* Destaca o "Módulo X:" em branco */
+}
+/* =========================================
+   WIDGET: DETALHES DO CURSO (Sidebar)
+========================================= */
+.curso_detalhes {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid var(--cor-asfalto); /* Linha divisória sutil ancorada na sua paleta */
+}
+
+.detalhes_titulo {
+    font-size: 12px;
+    color: var(--cor-texto-secundario);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.detalhes_lista {
+    list-style: none; /* Remove os marcadores padrão */
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Espaçamento metódico entre as linhas */
+}
+
+.detalhes_lista li {
+    display: flex;
+    justify-content: space-between; /* Joga o Rótulo para a esquerda e o Dado para a direita */
+    font-size: 13px;
+    color: var(--cor-texto-secundario); /* Rótulo rebaixado e sutil */
+}
+
+/* O alvo dinâmico (Onde o JS ou o Django atuará) */
+.detalhes_lista li span {
+    color: var(--cor-texto-principal); /* O dado salta visualmente com maior brilho */
+    font-weight: bold;
+    text-align: right;
+}

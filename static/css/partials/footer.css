@@ -1,0 +1,52 @@
+/* =========================================
+   RODAPÉ (FOOTER)
+========================================= */
+
+.main_footer > * {
+    flex: 1; /* Força divisão igualitária do espaço (33% para cada) */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.footer_title {
+    font-weight: bold;
+    color: var(--cor-secundario);
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+
+.footer_info p {
+    color: var(--cor-texto-apagado); 
+    font-size: 12px;
+    font-style: italic; 
+}
+
+.footer_nav ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 20px;
+}
+
+.footer_nav a {
+    color: var(--cor-texto-secundario);
+    text-decoration: none;
+    font-size: 13px;
+    transition: color 0.2s ease;
+}
+
+.footer_nav a:hover {
+    color: var(--cor-texto-principal); 
+}
+
+.social_icons {
+    display: flex;
+    flex-direction: row; 
+    gap: 20px; 
+    justify-content: center;
+}

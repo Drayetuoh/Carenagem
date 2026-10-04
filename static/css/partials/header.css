@@ -1,0 +1,383 @@
+/* ============== PADRÕES GERAIS ============== */
+.main_header {
+    position: relative;
+    height: 80px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr; 
+    align-items: center; 
+    padding: 0 30px;
+    background-color: var(--cor-principal);
+}
+
+.logo {
+    justify-self: center;
+}
+
+.logo a {
+    color: var(--cor-texto-principal);
+    text-decoration: none;
+    font-size: 28px;
+    font-weight: 900;
+    font-style: italic;
+}
+
+.logo span {
+    color: var(--cor-secundario);
+}
+
+/* ============== Slots Laterais ============== */
+.header_slot_left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.header_slot_right {
+    justify-self: end;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 6px;
+}
+
+/* ============== Slot Esquerdo ============== */
+/* menu de hamburger */
+.menu_toggle {
+    flex-shrink: 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    padding: 8px 6px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease-out;
+}
+
+.menu_toggle:hover {
+    background-color: rgba(255, 255, 255, 0.04);
+}
+
+.menu_toggle .bar {
+    display: block;
+    width: 22px;
+    height: 3px;
+    background-color: var(--cor-texto-principal);
+    border-radius: 2px;
+    transition: transform 0.2s ease-out, opacity 0.2s ease-out; 
+}
+
+.menu_toggle.ativo .bar:nth-child(1) { transform: translateY(calc(3px + 4px)) rotate(45deg); }
+.menu_toggle.ativo .bar:nth-child(2) { opacity: 0; }
+.menu_toggle.ativo .bar:nth-child(3) { transform: translateY(calc(-3px - 4px)) rotate(-45deg); }
+.menu_toggle.ativo ~ nav {
+    transform: translateX(0); 
+}
+
+.card_login, .header_slot_left nav {
+    background: linear-gradient(180deg,rgba(10, 12, 16, 0.98) 0%,rgba(8, 10, 14, 0.98) 100%);
+    border: 1px solid rgba(255, 94, 0, 0.28);
+    border-radius: 12px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(8px);
+}
+
+.header_slot_left nav {
+    position: absolute;
+    top: calc(100% + 12px);
+    left: 0;
+    transform: translateX(-102%);
+    transition: transform 0.22s ease-out, opacity 0.22s ease-out;
+    padding: 16px 14px;
+    min-width: 220px;
+    z-index: 10;
+    overflow: hidden;
+    border-left: none;
+    border-radius: 0 14px 14px 0;
+}
+
+.header_slot_left nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin: 0;
+    padding: 0;
+}
+
+.header_slot_left nav ul hr {
+    border: none;
+    border-top: 1px solid rgba(255, 94, 0, 0.22);
+    margin: 8px 0;
+}
+
+.header_slot_left nav a {
+    display: flex;
+    align-items: center;
+    min-height: 42px;
+    padding: 10px 12px;
+    color: var(--cor-texto-principal);
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 13px;
+    border-left: 3px solid transparent;
+    border-radius: 8px;
+    background-image: linear-gradient(to right, rgba(255, 94, 0, 0.08), rgba(255, 94, 0, 0.08));
+    background-repeat: no-repeat;
+    background-size: 0% 100%;
+    transition: color 0.2s ease-out, background-size 0.2s ease-out, transform 0.2s ease-out, border-color 0.2s ease-out;
+}
+
+.header_slot_left nav a:hover {
+    color: var(--cor-secundario);
+    background-size: 100% 100%;
+    border-left-color: var(--cor-secundario);
+    transform: translateX(2px);
+}
+
+
+/* Cadeado */
+.lock_icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0; 
+    color: var(--cor-texto-apagado); 
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.lock_icon:hover {
+    color: var(--cor-texto-secundario); 
+}
+
+.lock_icon svg {
+    width: 20px;
+    height: auto;
+}
+
+.lock_icon .lock_open { 
+    display: block; 
+}
+.lock_icon .lock_closed { 
+    display: none; 
+}
+
+.main_header.header_fixado {
+    position: sticky; 
+    top: 0;
+    z-index: 1000; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); 
+}
+.main_header.header_fixado .lock_open { display: none; }
+.main_header.header_fixado .lock_closed { display: block;}
+
+/* ============== Slot Direito ============== */
+/* 3 Capacetes */
+.helmet_icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    color: var(--cor-asfalto); 
+    cursor: pointer;
+    transition: color 0.2s ease-out, transform 0.2s ease-out; 
+}
+
+.helmet_icon svg {
+    width: 28px;
+    height: auto;
+    transition: inherit; 
+}
+
+.helmet_icon:hover svg {
+    color: var(--cor-secundario); 
+    transform: scale(1.2);
+}
+
+/* 1 Capacete (perfil) */
+.user_icon {
+    justify-self: end;
+    display: flex;
+    align-items: center;
+}
+
+.card_login {
+    position: absolute;
+    top: calc(100% + 12px);
+    right: 0;
+    transform: translateX(100%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.22s ease-out, opacity 0.22s ease-out;
+    padding: 22px;
+    width: 320px;
+    min-width: 300px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background-color: var(--cor-principal);
+    border: 1px solid var(--cor-secundario);
+    border-radius: 8px;
+}
+
+.perfil_header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Disparo do menu de login (Hover ou JS) */
+.user_icon.ativo .card_login {
+    transform: translateX(-10px); 
+    opacity: 1;
+    pointer-events: auto; 
+}
+
+.avatar_circle {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--cor-secundario);
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.03);
+}
+
+.avatar_generico {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--cor-sombra);
+    color: var(--cor-texto-principal);
+}
+
+.avatar_generico svg {
+    width: 26px;
+    height: 26px;
+}
+
+.user_name {
+    font-weight: 700;
+    color: var(--cor-texto-principal);
+    font-size: 15px;
+    letter-spacing: 0.2px;
+}
+
+.card_login hr {
+    border: none;
+    border-top: 1px solid var(--cor-texto-secundario);
+    opacity: 0.22;
+    margin: 4px 0;
+}
+
+.card_title {
+    font-size: 12px;
+    color: var(--cor-secundario);
+    text-transform: uppercase;
+    font-weight: 700;
+    text-align: left;
+    letter-spacing: 0.8px;
+    margin-top: 2px;
+}
+
+/* Navegação Logado */
+.perfil_nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.perfil_nav a, .link_sutil {
+    color: var(--cor-texto-principal);
+    text-decoration: none;
+    font-size: 13px;
+    transition: color 0.2s;
+}
+
+.perfil_nav a:hover, .link_sutil:hover {
+    color: var(--cor-secundario);
+}
+
+/* Formulário de Login */
+.login_form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.login_form label {
+    display: block;
+}
+
+.login_form input {
+    width: 100%;
+    padding: 10px 12px;
+    background-color: var(--cor-sombra);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: var(--cor-texto-principal);
+    border-radius: 8px;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.login_actions {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 4fr 3fr; 
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.card_login button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    background-color: var(--cor-secundario);
+    color: #fff;
+}
+
+.perfil_actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+/* Redes Sociais */
+.social_login {
+    display: flex;
+    justify-content: space-around;
+    gap: 5px;
+}
+
+.circle_btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: var(--cor-sombra);
+    color: var(--cor-texto-principal);
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.circle_btn:hover {
+    background-color: var(--cor-secundario);
+    transform: scale(1.1);
+}

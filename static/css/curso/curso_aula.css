@@ -1,0 +1,74 @@
+.aula_container {
+    max-width: 900px; 
+    margin: 2rem auto;
+    padding: 0 20px;
+    color: #FFFFFF; 
+}
+
+/* Divisória entre o título e o conteúdo */
+.aula_header {
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #FF4500; 
+}
+
+.aula_titulo {
+    font-size: clamp(1.5rem, 2vw + 1rem, 2.2rem);
+    font-weight: bold;
+    text-wrap: balance;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.aula_modulo_label {
+    display: block; 
+    font-size: 1rem;
+    color: #FF4500; 
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+}
+
+.aula_midia {
+    max-width: 66ch;
+    margin: 0 auto 32px auto;
+    border-radius: 4px;
+    overflow: hidden; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7); 
+}
+
+.aula_midia img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.aula_conteudo {
+    max-width: 66ch; 
+    margin: 0 auto;
+}
+
+/* Tipografia de leitura de longo curso */
+.aula_conteudo p {
+    /* Fluidez tática: Base 16px, crescendo sutilmente com a tela (via vw), com teto de 18px */
+    font-size: clamp(1rem, 1vw + 0.5rem, 1.125rem);
+    color: #D1D5DB; /* Branco rebaixado: corta o vazamento de luz na retina */
+    line-height: 1.7; /* Distanciamento vertical calculado (170%) */
+    letter-spacing: 0.3px; /* Micro-espaçamento horizontal, crucial no modo escuro */
+    margin-bottom: 24px;
+}
+
+.aula_conteudo strong, 
+.aula_conteudo b {
+    color: var(--cor-secundario, #FF4500);
+    font-weight: 600;
+}
+
+.aula_conteudo blockquote {
+    margin: 28px 0;
+    padding: 16px 20px;
+    background-color: #111111; 
+    border-left: 4px solid #FF4500; 
+    font-style: italic;
+    color: #FFFFFF;
+    border-radius: 0 4px 4px 0;
+}

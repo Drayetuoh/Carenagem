@@ -1,0 +1,6 @@
+# Oculta o cofre de senhas do Git
+.env
+db.sqlite3
+__pycache__/
+*.pyc
+venv/

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Portal Carenagem - Noticias{% endblock %}
+
+{% block content %}
+    <!-- Não precisamos das sidebars aqui se a página de curso for tela cheia. -->
+    <!-- Caso queira as sidebars, basta dar um include como fizemos no index. -->
+    
+    <section class="main_content">
+        <h2>Pagina de noticias</h2>
+        <p>{% lorem 1 b random %}</p>
+    </section>
+{% endblock %}

@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css_adicional %}
+    <link rel="stylesheet" href="{% static 'css/curso/curso.css' %}">
+    <link rel="stylesheet" href="{% static 'css/curso/curso_indice.css' %}">
+    <link rel="stylesheet" href="{% static 'css/partials/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/partials/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/partials/header_perfil.css' %}">
+{% endblock %}
+
+{% block header_left %}
+    {% include 'components/__header_left_toogle_lock.html' with tipo_menu='curso' %}
+{% endblock %}
+
+{% block header_right %}
+    {% include 'components/__header_perfil.html' %}
+{% endblock %}
+
+{% block content %}
+
+    {% include 'partials/_sidebar_ementa_left.html' %}
+
+    <section class="main_content">
+        <h2 class="curso_titulo_interno">Motocicletas: Do Entusiasta ao Sabichão</h2>
+        
+        <div class="ementa_curso">
+            <details class="ementa_secao" 
+                     name="ementa_acordeon" 
+                     data-resumo="Este módulo aborda a linha do tempo desde a invenção da roda até os primeiros motores acoplados em quadros de bicicleta.">
+            <summary>
+                <h3>HISTÓRIA E EVOLUÇÃO</h3> 
+                <br> 
+                <h4>(A Linha do Tempo)</h4> 
+            </summary>
+                <ol>
+                    <li><a href="{% url 'curso:aulas' %}">Módulo 1: Gênese: A evolução do transporte e o surgimento das duas rodas.</a></li>
+                    <li><a href="#">Módulo 2: Transição: Os primeiros ciclomotores (Bicicletas motorizadas).</a></li>
+                    <li><a href="#">Módulo 3: O Marco Zero: As primeiras motocicletas e a fundação da indústria.</a></li>
+                    <li><a href="#">Módulo 4: O Batismo de Fogo: A motocicleta na História Militar (Guerras Mundiais, mensageiros e táticas de combate).</a></li>
+                    <li><a href="#">Módulo 5: Os Pioneiros: Visionários que forjaram a cultura motociclista clássica.</a></li>
+                </ol>
+            </details>
+
+            <details class="ementa_secao" 
+                     name="ementa_acordeon"
+                     data-resumo="">
+            <summary>
+                <h3>ENGENHARIA E ANATOMIA</h3>
+                <br>
+                <h4> (A Máquina e a Física)</h4>
+            </summary>
+                <ol start="6">
+                    <li><a href="#">Módulo 6: Taxonomia e Classificação: Categorias de motocicletas.</a></li>
+                    <li><a href="#">Módulo 7: Anatomia Básica e Ciclística: Estrutura do chassi, suspensão, freios.</a></li>
+                    <li><a href="#">Módulo 8: Geometria da Motocicleta: Rake, trail, entre-eixos.</a></li>
+                    <li><a href="#">Módulo 9: O Contato com o Solo: Física, compostos e engenharia de pneus.</a></li>
+                    <li><a href="#">Módulo 10: Termodinâmica Prática: Motores a combustão.</a></li>
+                    <li><a href="#">Módulo 11: Sistemas de Alimentação e Fluidos: Combustíveis e lubrificação.</a></li>
+                    <li><a href="#">Módulo 12: Trem de Pouso e Força Motriz: Transmissão primária e secundária.</a></li>
+                    <li><a href="#">Módulo 13: Assinatura Acústica: A física do som e motores pelo escapamento.</a></li>
+                    <li><a href="#">Módulo 14: Sistema Nervoso: Elétrica básica, chicotes e ignição.</a></li>
+                    <li><a href="#">Módulo 15: Dinâmica e Aerodinâmica: Carenagem e resistência do ar.</a></li>
+                    <li><a href="#">Módulo 16: A Transição Energética: Motores elétricos e particularidades.</a></li>
+                    <li><a href="#">Módulo 17: Inovação Tecnológica: Eletrônica e assistentes de pilotagem.</a></li>
+                </ol>
+            </details>
+            
+            <details class="ementa_secao" name="ementa_acordeon">
+            <summary>
+                <h3>OPERAÇÃO E PROTOCOLOS VITAIS</h3>
+                <br>
+                <h4>(A Interface Homem-Máquina)</h4>
+            </summary>
+                <ol start="18">
+                    <li><a href="#">Módulo 18: Ergonomia e Biomecânica: Triângulo de pilotagem e posturas.</a></li>
+                    <li><a href="#">Módulo 19: Doutrina de Pilotagem: Técnicas, condução e contra-esterço.</a></li>
+                    <li><a href="#">Módulo 20: Doutrina de Segurança: Equipamentos de proteção individual.</a></li>
+                    <li><a href="#">Módulo 21: Legislação e Regras de Engajamento Viário: Código de Trânsito.</a></li>
+                    <li><a href="#">Módulo 22: Logística e Sobrevivência Mecânica: Manutenção preventiva e corretiva.</a></li>
+                </ol>
+            </details>
+
+            <details class="ementa_secao" name="ementa_acordeon">
+            <summary>
+                <h3>SOCIOLOGIA, MERCADO E FENOMENOLOGIA DO MOTOCICLISMO </h3>
+                <br>
+                <h4>(A Cultura)</h4>
+            </summary>
+                <ol start="23">
+                    <li><a href="#">Módulo 23: O Complexo Industrial: Fabricação, montadoras e suas assinaturas.</a></li>
+                    <li><a href="#">Módulo 24: O Fator Econômico: O mercado e profissões em duas rodas.</a></li>
+                    <li><a href="#">Módulo 25: Vertentes e Subculturas: Choppers, Cafe Racers, Bobbers.</a></li>
+                    <li><a href="#">Módulo 26: O Fenômeno Desportivo: MotoGP, Motocross, etc.</a></li>
+                    <li><a href="#">Módulo 27: A Filosofia da Estrada: Nomadismo e a psicologia do isolamento.</a></li>
+                    <li><a href="#">Módulo 28: Estrutura Social Aberta: Eventos, encontros e concentrações.</a></li>
+                    <li><a href="#">Módulo 29: Ordem e Hierarquia: As tradições e regras dos Motoclubes.</a></li>
+                </ol>
+            </details>
+        </div>
+
+        <!-- Botão de avanço isolado em sua própria div -->
+        <div class="curso_acoes">
+            <a href="#" class="btn_proximo_curso">Acessar próximo curso (Moto Clubes)</a>
+        </div>
+    </section>
+
+{% endblock %}

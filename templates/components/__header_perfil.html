@@ -1,0 +1,95 @@
+<div class="user_icon" id="perfil_toggle_wrapper">
+
+    <div class="helmet_icon" id="helmet_perfil" title="Menu de Perfil">
+        <svg fill="currentColor" version="1.1" id="Capa_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 335.841 335.841" xml:space="preserve">
+        <g>
+            <path d="M331.947,226.808l-1.932-5.573c-1.31-3.778-2.823-7.482-4.532-11.097L306.735,170.5l-25.861-54.679
+                c-1.656-3.501-3.447-6.939-5.387-10.291c-0.69-1.193-1.312-2.233-1.653-2.718c-25.83-36.785-75.364-58.221-137.009-59.039
+                c-0.608-0.009-1.205-0.013-1.811-0.013c-73.817,0-134.382,59.207-135.009,131.982c-0.364,42.22,19.624,82.54,53.467,107.858
+                c7.311,5.469,16.443,8.48,25.715,8.48h223.812c13.745,0,26.062-9.207,29.952-22.39C337.12,255.559,336.773,240.731,331.947,226.808
+                z M314.197,215.295h-19.735l-43.618-87.761h21.892c0.018,0.042,0.041,0.093,0.058,0.133l0.084,0.201L314.197,215.295z
+                M173.498,127.877l39.437,79.33c-7.852-3.842-15.105-8.985-21.465-15.35c-15.112-15.111-23.436-35.203-23.436-56.573
+                C168.034,131.804,170.338,128.854,173.498,127.877z M230.509,213.356l-42.664-85.821h22.982l43.628,87.761h-6.411
+                C242.069,215.295,236.202,214.622,230.509,213.356z M268.972,215.295l-43.628-87.761h10.983l43.618,87.761H268.972z
+                M320.481,266.012c-2.271,7.695-9.46,13.069-17.483,13.069H79.187c-6.483,0-12.85-2.092-17.928-5.891
+                c-30.543-22.85-48.583-59.237-48.254-97.337C13.57,110.186,68.303,56.76,135.014,56.76c0.548,0,1.088,0.004,1.638,0.011
+                c59.62,0.791,106.684,21.727,129.163,57.449c0.053,0.096,0.116,0.209,0.174,0.314h-90.214c-11.436,0-20.74,9.309-20.74,20.75
+                c0,24.843,9.675,48.199,27.242,65.765c17.559,17.57,40.916,27.246,65.768,27.246h70.66l0.96,2.771
+                C323.597,242.411,323.88,254.495,320.481,266.012z"/>
+            <path d="M128.605,135.536c-11.854,0-21.499,9.645-21.499,21.499s9.645,21.499,21.499,21.499c11.855,0,21.5-9.645,21.5-21.499
+                S140.46,135.536,128.605,135.536z M128.605,165.534c-4.687,0-8.499-3.813-8.499-8.499s3.813-8.499,8.499-8.499s8.5,3.813,8.5,8.499
+                S133.292,165.534,128.605,165.534z"/>
+        </g>
+        </svg>
+    </div>
+
+    <div class="card_login">
+        
+        {% if user.is_authenticated %}
+            <!-- ================= BLOCO: USUÁRIO LOGADO ================= -->
+            <div class="perfil_header">
+                <!-- Se não houver foto, cai para um placeholder padrão via Django -->
+                <img src="{{ user.perfil.foto.url|default:'/static/img/default_avatar.jpg' }}" alt="Avatar" class="avatar_circle">
+                <!-- Puxa apenas os dois primeiros nomes -->
+                <span class="user_name">{{ user.first_name }} {{ user.last_name }}</span>
+            </div>
+            
+            <hr>
+            
+            <nav class="perfil_nav">
+                <a href="#">Editar Perfil</a>
+                <a href="#">Alterar Senha</a>
+                <a href="#">Alterar Foto</a>
+                <a href="#">Minhas Postagens</a>
+            </nav>
+            
+            <div class="perfil_actions">
+                <button class="btn_outline">Trocar Conta</button>
+                <form action="#" method="POST" style="width: 100%;">
+                    {% csrf_token %}
+                    <button type="submit" class="btn_danger">Deslogar</button>
+                </form>
+            </div>
+
+        {% else %}
+            <!-- ================= BLOCO: CONVIDADO (DESLOGADO) ================= -->
+            <div class="perfil_header">
+                <div class="avatar_circle avatar_generico">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                </div>
+                <span class="user_name">Convidado</span>
+            </div>
+            
+            <hr>
+            
+            <span class="card_title">Efetuar Login</span>
+            
+            <form class="login_form" action="#" method="POST">
+                {% csrf_token %}
+                <label>
+                    <input type="text" name="username" placeholder="Usuário" required>
+                </label>
+                <label>
+                    <input type="password" name="password" placeholder="Senha" required>
+                </label>
+                
+                <div class="login_actions">
+                    <button>Recuperar senha</button>
+                    <button type="submit" class="btn_primary">Entrar</button>
+                </div>
+            </form>
+            
+            <hr>
+            
+            <span class="card_title">Outras formas de entrar</span>
+            
+            <div class="social_login">
+                <a href="#" class="circle_btn google" title="Google">G</a>
+                <a href="#" class="circle_btn instagram" title="Instagram">I</a>
+                <a href="#" class="circle_btn twitter" title="Twitter">T</a>
+                <a href="#" class="circle_btn facebook" title="Facebook">F</a>
+            </div>
+        {% endif %}
+        
+    </div>
+</div>

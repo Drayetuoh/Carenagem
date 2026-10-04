@@ -1,0 +1,62 @@
+/* =========================================
+   SIDEBAR (BARRAS LATERAIS)
+========================================= */
+.sidebar {
+    width: 250px; 
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.sidebar_widget, .sidebar_patrocinadores {
+    background-color: var(--cor-principal);
+    border: 1px solid var(--cor-sombra);
+    border-radius: 4px;
+    padding: 15px;
+    text-align: center;
+}
+
+.sidebar_widget h3, .sidebar_patrocinadores h3{
+    color: var(--cor-secundario);
+    font-size: 16px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--cor-sombra);
+    padding-bottom: 5px;
+}
+
+.sidebar_widget ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sidebar_widget a {
+    display: block;
+    color: var(--cor-texto-secundario);
+    text-decoration: none;
+    font-size: 13px;
+    padding: 6px 10px;
+    border-left: 2px solid transparent;
+    transition: color 0.2s ease-out, border-left 0.2s ease-out, background-color 0.2s ease-out;
+}
+
+.sidebar_widget a:hover {
+    color: var(--cor-texto-principal);
+    border-left: 2px solid var(--cor-secundario);
+    background-color: var(--cor-sombra);
+}
+
+.sidebar_ad {
+    border-radius: 4px;
+    margin-bottom: 15px; 
+}
+
+.sidebar_ad img {
+    max-width: 100%;     /* Respeita o limite do flex: 3 (ou 2.5) da sidebar */
+    height: auto;        /* Preserva a simetria matemática da imagem */
+    display: block;      /* Remove o pixel fantasma inferior */
+    margin: 0 auto;      /* Centraliza dentro da div sidebar_ad */
+    border-radius: 4px;  /* Casamento estético com o chassi principal */
+}

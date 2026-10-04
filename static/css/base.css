@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Roboto:ital,wght@0,400;0,700;1,400&display=swap');
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Superfície e Ação */
+    --cor-principal: #0B1016; /* Preto-azulado fosco para os cartões. Mimetiza o asfalto noturno. */
+    --cor-secundario: #FF4500; /* O Laranja retorna. O contraste agora é seguro e focado. */
+    
+    /* Fundo Espelhado Sutil (Gunmetal/Midnight) */
+    /* O gradiente agora ancora no breu e o reflexo fica restrito à extremidade */
+    --cor-background: #020305; 
+    --cor-background-espelhado: linear-gradient(145deg, #020305 0%, #05080C 35%, #1F2C3A 50%, #05080C 65%, #020305 100%);
+    /* O gradiente concentra o preto-azulado em 70% da tela, revelando a "textura de prata/petróleo" apenas no final do eixo. */
+    
+    /* Tipografia (Calibrada para o fundo escuro) */
+    --cor-texto-principal: #FFFFFF;
+    --cor-texto-secundario: #9BA4B5; /* Cinza levemente prateado. */
+    --cor-texto-apagado: #6B7687;
+    
+    /* Elementos de Apoio */
+    --cor-asfalto: #151D29;
+    --cor-sombra: #000000;
+
+    --fonte-titulos: 'Oswald', sans-serif;
+    --fonte-textos: 'Roboto', sans-serif;
+
+    --altura-carrossel: 160px;
+}
+
+body {
+    background-color: var(--cor-background); /* Segurança: Renderiza a cor sólida quase instantaneamente enquanto o navegador processa o cálculo do gradiente. */
+    background-image: var(--cor-background-espelhado);
+    background-attachment: fixed;
+    color: var(--cor-texto-principal); 
+    font-family: var(--fonte-textos);
+    overflow-x: hidden;
+}
+
+/* =================== Main ===================*/
+
+main { 
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.404);
+    padding: 20px;
+    margin: 10px;
+    gap: 20px;
+    border-radius: 10px;
+    align-items: flex-start;
+    background-color: var(--cor-principal); 
+}
+
+.main_content {
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+}
+
+.main_content h2 {
+    color: var(--cor-secundario);
+    text-transform: uppercase;
+    font-size: 22px;
+    margin-bottom: 2px;
+    border-bottom: 2px solid var(--cor-sombra);
+    padding-bottom: 4px;
+    width: 100%;
+}
+
+/* =================== Footer ===================*/
+
+.main_footer {
+    background-color: var(--cor-principal);
+    padding: 15px 30px; 
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 15px;
+}
+
+.main_footer p {
+    color: var(--cor-texto-secundario);
+    font-size: 13px;
+    margin: 5px 0;
+}
+
+.footer_slot {
+    flex: 1;
+    display: flex;
+    justify-content: center; /* Centraliza conteúdo dentro do slot */
+    border: 1px dashed var(--cor-sombra); 
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 15px; 
+}
+/* ================= BARRA DE ROLAGEM ================= */
+
+/* 1. Padrão W3C (Suporte nativo do Firefox) */
+html {
+    scrollbar-width: thin;
+    scrollbar-color: var(--cor-asfalto) var(--cor-principal); /* Cor da peça móvel e cor do fundo */
+    overflow-x: hidden;
+}
+
+/* 2. Motor WebKit (Chrome, Edge, Safari, Opera) */
+::-webkit-scrollbar {
+    width: 10px; 
+    background-color: var(--cor-principal); /* Camufla o trilho com o fundo do site */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--cor-asfalto); /* Cor da engrenagem móvel em repouso */
+    border-radius: 5px; /* Suavização geométrica das pontas */
+    border: 2px solid var(--cor-principal); /* Cria um "respiro" simulando margem lateral */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--cor-secundario); /* A peça acende instantaneamente no foco */
+}

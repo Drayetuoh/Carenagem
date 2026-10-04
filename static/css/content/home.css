@@ -1,0 +1,85 @@
+/* =========================================
+   FEED TÁTICO E POSTAGENS (CARDS)
+========================================= */
+
+/* Limpa o recuo padrão que a classe genérica ul poderia herdar */
+.news_feed {
+    padding-left: 0;
+}
+
+/* Força o alinhamento à esquerda e tira recuos no widget */
+.sidebar_widget .news_feed {
+    padding-left: 0;
+    text-align: left; 
+}
+
+/* O bloco de data/hora (Aparência de painel de terminal) */
+.news_date {
+    display: block;
+    color: var(--cor-asfalto);
+    font-size: 11px;
+    margin-top: 6px;
+    font-style: italic;
+}
+
+/* Marcação de Prioridade Máxima (ALERTA) */
+.tag_urgente {
+    color: var(--cor-secundario);
+    font-weight: bold;
+    margin-right: 4px;
+}
+
+/* Marcações de Rotina (NOVO, HOJE) */
+.tag_novo, .tag_hoje {
+    color: var(--cor-texto-principal);
+    font-weight: bold;
+    margin-right: 4px;
+}
+
+/* --- ESTILO DAS POSTAGENS (CARDS) --- */
+.post_card {
+    background-color: var(--cor-background);
+    border: 1px dashed var(--cor-sombra);
+    border-left: 4px solid var(--cor-secundario);
+    padding: 60px;
+    gap: 10px;
+    border-radius: 4px; 
+    text-align: left; 
+}
+
+.post_title {
+    color: var(--cor-texto-principal);
+    text-transform: uppercase;
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.post_meta {
+    color: var(--cor-asfalto);
+    font-size: 12px;
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+.post_excerpt {
+    color: var(--cor-texto-secundario);
+    line-height: 2.0;
+    margin-bottom: 20px;
+}
+
+.btn_leia_mais {
+    display: inline-block;
+    background-color: var(--cor-secundario);
+    color: var(--cor-texto-principal);
+    padding: 8px 30px;
+    text-decoration: none;
+    text-align: center  ;
+    font-weight: bold;
+    font-size: 13px;
+    border-radius: 2px;
+    transition: background-color 0.2s ease-out;
+}
+
+.btn_leia_mais:hover {
+    background-color: #cc3700;
+}

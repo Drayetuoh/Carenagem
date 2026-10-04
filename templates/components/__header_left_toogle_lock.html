@@ -1,0 +1,47 @@
+<!-- __header_menu.html é um componente para uma div pre instalada em _header.html, por isso não usei uma div inicial-->
+<button class="menu_toggle" id="btn_menu" aria-label="Abrir Menu">
+    <span class="bar"></span> <!-- Barra simples feita por css -->
+    <span class="bar"></span>
+    <span class="bar"></span>
+</button>
+
+<nav>
+    <ul>
+        {% if tipo_menu == 'content' %}
+        <li><a href="{% url 'content:home' %}">Página Inicial</a></li>
+        <li><a href="{% url 'content:postagens' %}">Postagens</a></li>
+        <li><a href="{% url 'content:eventos' %}">Eventos</a></li>
+        <li><a href="{% url 'content:noticias' %}">Noticias</a></li>
+        <li><a href="{% url 'content:forum' %}">Fórum</a></li>
+        <li><a href="{% url 'content:parceiros' %}">Parceiros/Patrocinadores</a></li>
+        <li><a href="{% url 'content:sobre' %}">Sobre</a></li>
+        <hr>
+        <li><a href="{% url 'curso:home' %}">Curso</a></li>
+        <li><a>Loja</a></li>
+        <li><a>Moto-Clubes</a></li>
+        {% elif tipo_menu == 'curso' %}
+        <li><a href="{% url 'curso:home' %}">Cursos</a></li>
+        <li><a href="{% url 'curso:home' %}">Motos</a></li>
+        <li><a href="{% url 'curso:home' %}">Moto-clubes</a></li>
+        <li><a href="{% url 'curso:home' %}">Rock</a></li>
+        <li><a href="{% url 'curso:home' %}">Etiqueta</a></li>
+        <li><a href="{% url 'curso:home' %}">Jogos</a></li>
+        <hr>
+        <li><a href="{% url 'content:home' %}">Página Inicial</a></li>
+        <li><a>Loja</a></li>
+        <li><a>Moto-Clubes</a></li>
+        {% elif tipo_menu == 'loja' %}
+            <!-- Slot para o futuro menu 3 -->
+        {% endif %}
+    </ul>
+</nav>
+<!-- Cadeado -->
+<div class="lock_icon" id="btn_trava_header" title="Clique para travar/destravar o cabeçalho" aria-label="Status de Fixação do Cabeçalho">
+    <svg class="lock_open" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" fill="currentColor">
+        <path d="M416 160C416 124.7 444.7 96 480 96C515.3 96 544 124.7 544 160L544 192C544 209.7 558.3 224 576 224C593.7 224 608 209.7 608 192L608 160C608 89.3 550.7 32 480 32C409.3 32 352 89.3 352 160L352 224L192 224C156.7 224 128 252.7 128 288L128 512C128 547.3 156.7 576 192 576L448 576C483.3 576 512 547.3 512 512L512 288C512 252.7 483.3 224 448 224L416 224L416 160z"/>
+    </svg>
+
+    <svg class="lock_closed" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" fill="currentColor">
+        <path d="M256 160L256 224L384 224L384 160C384 124.7 355.3 96 320 96C284.7 96 256 124.7 256 160zM192 224L192 160C192 89.3 249.3 32 320 32C390.7 32 448 89.3 448 160L448 224C483.3 224 512 252.7 512 288L512 512C512 547.3 483.3 576 448 576L192 576C156.7 576 128 547.3 128 288C128 252.7 156.7 224 192 224z"/>
+    </svg>
+</div>

@@ -1,0 +1,30 @@
+{% load static %}
+<aside class="sidebar">
+    <section class="sidebar_widget">        
+        <!-- ================================================================================ -->
+        <article class="curso_info_card">
+            
+            <!-- 1. Área de Mídia -->
+            <div class="curso_imagem_destaque">
+                <!-- A imagem será controlada pelo CSS para não vazar o container -->
+                <img src="{% static 'img/Motos_Aleatorias/Moto_generica_3.jpg' %}" alt="Ilustração do Módulo" class="imagem_responsiva">
+            </div>
+            
+            <div class="curso_dados_dinamicos">
+                <h4 id="sidebar_titulo">Aguardando seleção...</h4>
+                <p id="sidebar_resumo">Abra um dos módulos ao lado para visualizar o relatório de conteúdo aqui.</p>
+            </div>
+            
+            <div class="curso_detalhes">
+                <h4 class="detalhes_titulo">Detalhes sobre o tópico</h4>
+                <ul class="detalhes_lista">
+                    <li>Tempo estimado: <span id="detalhe_tempo">--</span></li>
+                    <li>Total de módulos: <span id="detalhe_modulos">--</span></li>
+                    <li>Nível: <span id="detalhe_nivel">--</span></li>
+                    <li>Utilidade: <span id="detalhe_utilidade">--</span></li>
+                </ul>
+            </div>
+
+        </article>
+    </section>
+</aside>

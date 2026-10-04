@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+ 
+{% block css_adicional %}
+    <link rel="stylesheet" href="{% static 'css/curso/curso.css' %}">
+    <link rel="stylesheet" href="{% static 'css/curso/curso_aula.css' %}">
+    <link rel="stylesheet" href="{% static 'css/partials/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/partials/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/partials/header_perfil.css' %}">
+{% endblock %}
+
+{% block header_left %}
+    {% include 'components/__header_left_toogle_lock.html' with tipo_menu='curso' %}
+{% endblock %}
+
+{% block header_right %}
+    <!-- talvez um ester egg -->
+{% endblock %}
+
+{% block content %}
+    <section class="aula_container">
+        
+        <header class="aula_header">
+            <div class="modulo"><span>Módulo 1</span></div>
+            <h1 class="titulo">Gênese</h1>
+            <p class="subtitulo">A evolução do transporte e o surgimento das duas rodas.</p>
+        </header>
+        
+        <figure class="aula_midia">
+            <img src="{% static 'img/curso/bat_moto.jpg' %}"  alt="Ilustração da Aula">
+            <figcaption>Ilustração do Batman usada na aula.</figcaption>
+        </figure>
+
+        <article class="aula_conteudo">
+            <p>{% lorem 30 w random %}</p>
+            <p>{% lorem 30 w random %}</p>
+            <blockquote>
+                {% lorem 10 w random %}
+            </blockquote>
+            <p>{% lorem 30 w random %}</p>
+            <figure class="aula_midia">
+                <img src="{% static 'img/curso/bat_moto.jpg' %}"  alt="Ilustração da Aula">
+                <figcaption>Ilustração do Batman usada na aula.</figcaption>
+            </figure>
+            <p>{% lorem 30 w random %}</p>
+            <p>{% lorem 30 w random %}</p>
+            <blockquote>
+                {% lorem 10 w random %}
+            </blockquote>
+            <p>{% lorem 30 w random %}</p>
+
+        </article>
+
+    </section>
+{% endblock %}

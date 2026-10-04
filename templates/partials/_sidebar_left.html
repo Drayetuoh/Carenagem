@@ -1,0 +1,45 @@
+{% load static %}
+<aside class="sidebar">
+    
+    <!-- Semântica blindada: Gaveta temática de Notícias -->
+    <section class="sidebar_widget">
+        <h3>NOTÍCIAS</h3>
+        
+        <ul class="news_feed">
+            <!-- Manchete 1: Prioridade Máxima -->
+            <li>
+                <a href="#">
+                    <span class="tag_urgente">[ALERTA]</span> Bloqueio tático na BR-135 por comboio militar.
+                    <span class="news_date">15 Jul 2026 | 21:00</span>
+                </a>
+            </li>
+            
+            <!-- Manchete 2: Atualização Normal -->
+            <li>
+                <a href="#">
+                    <span class="tag_novo">[NOVO]</span> Análise técnica: A eficiência das novas viaturas de interceptação.
+                    <span class="news_date">15 Jul 2026 | 18:30</span>
+                </a>
+            </li>
+            
+            <!-- Manchete 3: Atualização Normal -->
+            <li>
+                <a href="#">
+                    <span class="tag_hoje">[HOJE]</span> Reunião de alinhamento estratégico entre Motoclubes em Montes Claros.
+                    <span class="news_date">15 Jul 2026 | 14:00</span>
+                </a>
+            </li>
+        </ul>
+    </section>
+    <section class="sidebar_patrocinadores">
+        <h3>PATROCINADORES</h3>
+        
+        <div class="sidebar_ad">
+            <img src="{% static 'img/patrocinadores/banner_rock_and_roll.jpg' %}" alt="Patrocinador 1" class="patrocinador">
+        </div>
+
+        <div class="sidebar_ad">
+            <img src="{% static 'img/patrocinadores/banner_furry.png' %}" alt="Patrocinador 1" class="patrocinador">
+        </div>
+    </section>
+</aside>

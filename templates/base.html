@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}Portal Carenagem{% endblock %}</title>
+        <link rel="stylesheet" href="{% static 'css/base.css' %}"> <!-- Css padrão de todas as paginas -->
+        {% block css_adicional %}{% endblock %} <!-- Para css's especificos -->
+    </head>
+
+    <body>
+        
+        <header class="main_header header_fixado">
+            <div class="header_slot_left">
+                {% block header_left %}{% endblock %}
+            </div>
+            
+            <div class="logo">
+                {% block header_logo %}
+                <h1><a href="/">PORTAL<span>CARENAGEM</span></a></h1>
+                {% endblock %}
+            </div>
+            
+            <div class="header_slot_right">
+                {% block header_right %}{% endblock %}
+            </div>
+        </header>
+        
+        {% block popup %} {# Em "{% extends 'base.html' %}" eu devo especificar qual menu eu quero #}
+            {% include 'partials/_messages.html' %}{# Se eu não especificar o padrão será este #}
+        {% endblock popup %}
+        
+        <main>
+            {% block content %}
+                 <h1>Nesta pagina não foi especificada o 'block content', se se tratar de uma pagina de testes então está tudo bem</h1>
+            {% endblock content %}
+        </main>
+
+        <footer class="main_footer">
+
+            {% block footer_left %}{% endblock %}
+
+            {% block footer_center %}
+                    <div class="footer_info">
+                        <h3 class="footer_title">Copywriter</h3>
+                        <p>&copy; 2026 - MotoWeb: Aprender Ensinando</p>
+                        <p><i>"Sobre duas rodas a vida tem um destino"</i></p>
+                    </div>
+            {% endblock %}
+
+            {% block footer_right %}{% endblock %}
+            
+        </footer>
+
+        {% block javascript %} {# Em "{% extends 'base.html' %}" eu devo especificar qual pagina de script usar #}
+            {% include 'partials/_scripts.html' %} {# Se eu não especificar o padrão será este #}
+        {% endblock javascript %}
+        
+    </body>
+
+</html>

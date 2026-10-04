@@ -1,0 +1,46 @@
+Portal Carenagem/
+│
+└──Login (modelo proprio)
+    │
+    ├── index.html (Pagina principal)
+    │   ├── Portal de noticias
+    │   │   ├── ...
+    │   │   └── ...
+    │   ├── Portal de eventos
+    │   │   ├── ...
+    │   │   └── ...
+    │   ├── Portal de patrocinadores e parceiros
+    │   │   ├── ...
+    │   │   └── ...
+    │   ├── Artigos Principais que mostram o 'foco' do site (quando um desavisado entra ele precisa ver de imetiato o melhor do site)
+    │   │   ├── ...
+    │   │   └── ...
+    │   ├── Fórum
+    │   │   ├── ...
+    │   │   └── ...
+    │   ├── Sobre
+    │   │   ├── Objetivo do Portal Carenagem
+    │   │   └── Posicionamento do Autor
+    │   └── Pagina secreta (considere outro ester egg)
+    │       ├── ...
+    │       └── ...
+    │
+    ├── Curso (Primarios)
+    │   ├── Motos
+    │   ├── Motoclubes
+    │   ├── Rock n roll
+    │   └── Curso (Segundarios)
+    │        ├── Jogos (xadrez, poker, quebra de braço)
+    │        ├── Normas de etiqueta (convenções sociais)
+    │        └── Beletrismo (curso terceario para matar o tempo)
+    │
+    ├── Loja
+    │   └── (Para empresas parceiras)
+    │
+    │
+    └── Motoclubes
+        ├── Motoclubes simpatizantes
+        ├── Coletamentos
+        ├── Eventos internos
+        └── Depoimentos dos motoclubes
+

@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css_adicional %}
+    <link rel="stylesheet" href="{% static 'css/curso/curso.css' %}">
+    <link rel="stylesheet" href="{% static 'css/partials/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/partials/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/partials/header_perfil.css' %}">
+    <link rel="stylesheet" href="{% static 'css/partials/sidebar.css' %}">
+{% endblock %}
+
+{% block header_left %}
+    {% include 'components/__header_left_toogle_lock.html' with tipo_menu='curso' %}
+{% endblock %}
+
+{% block header_right %} <!-- Adicionando os 3 capacetes ao slot resarvado no cabeçalho -->
+    {% include 'components/__header_perfil.html' %}
+{% endblock %}
+
+{% block content %}
+
+    <section class="main_content">
+
+        <h2>Pronto para ficar por dentro?</h2>
+
+        <p class="info_banner">
+        <svg xmlns="http://w3.org" width="14" height="14" viewBox="0 0 16 16" fill="currentColor" style="font-style: normal; flex-shrink: 0;">
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+            <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>
+        </svg>    
+        Nossos cursos são gratuitos, o comercio e a distribuição acarretará em consequencias judiciais.
+        </p>
+
+        <article class="curso_card">
+            <h3 class="curso_title">Guia de Motos: tudo que você precisa saber</h3>
+            <p class="curso_meta">
+                <!-- Ícone de Calendário SVG -->
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                Publicado em xx de xxxx de 2026 
+                
+                <span class="meta_divisor">|</span> 
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                Por 'DD'
+            </p>
+            <div class="curso_conteudo">
+                <img src="{% static 'img/curso/moto_generica_1_x_1.webp' %}" alt="img curso 1" class="img_curso">
+                <div class="curso_texto">
+                <p class="curso_excerpt">{% lorem 1 b random %}</p>
+                <a href="{% url 'curso:motos' %}" class="btn_acessar_curso">Acessar curso: "Motos, a oitava maravilha do novo mundo"</a>
+                </div>
+            </div>
+                
+        </article>
+        
+        <article class="curso_card">
+            <h3 class="curso_title">Moto-Clubes: Mais que uma sociedade, uma familia</h3>
+            <p class="curso_meta">Publicado em xx de xxxx de 2026 | Por 'DD'</p>
+            <p class="curso_excerpt">
+                {% lorem 1 b random %}
+            </p>
+            <a href="#" class="btn_acessar_curso">Acessar curso: "Moto-clubes, origens"</a>
+        </article>
+        
+        <article class="curso_card">
+            <h3 class="curso_title">Rock n roll: não é uma escolha</h3>
+            <p class="curso_meta">Publicado em xx de xxxx  de 2026 | Por 'DD'</p>
+            <p class="curso_excerpt">
+                {% lorem 1 b random %}
+            </p>
+            <a href="#" class="btn_acessar_curso">Acessar curso: "A história do rock"</a>
+        </article>
+        
+
+        <p class="info_banner">
+        <svg xmlns="http://w3.org" width="14" height="14" viewBox="0 0 16 16" fill="currentColor" style="font-style: normal; flex-shrink: 0;">
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+            <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>
+        </svg>   
+             Nossos 'cursos' foram feitos e programados no modelo 'entusiasta para entusiasta'.
+             O conteudo foi montado com muito estudo e ajuda de uma inteligencia artificial bem treinada para trazer conteudos validos e autenticos, uma de nossas filosofias assim como nossas normas de etiqueta deixa claro a importancia do conhecimento adquirido de forma conciente e correta.
+        </p>
+
+    </section>
+    {% include 'partials/_sidebar_cursos_right.html' %}
+
+{% endblock %}
+
+{% block footer_left %}
+    {% include 'components/__footer_navegacao.html' %} 
+{% endblock %}
+
+{% block footer_center %}
+    {% include 'components/__footer_redes_sociais.html' %} 
+{% endblock %}
+    
+{% block footer_right %}
+    {% include 'components/__footer_info.html' %} 
+{% endblock %}
